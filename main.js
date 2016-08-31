@@ -15,16 +15,15 @@ var mySharedAccessKeyName = 'iothubowner';
 var mySharedAccessKey = 'vdJinNU+SkFWKYnvHut8xd1QiPVPdMStYyqR0Hn5uF0=';
 var myConnectionString = 'HostName='+ myHostName + ';SharedAccessKeyName='+ mySharedAccessKeyName + ';SharedAccessKey='+ mySharedAccessKey;
 var deviceIndex = 1;
-var startTime = Date.now(); 
-var deviceList = [];
+var startTime = Date.parse(2016-08-30);
+console.log(startTime);
 //Get the list of all devices
 getDevices(myConnectionString);
 //Show a high level summary of all devices
-showDevices(deviceList);
 //Monitor the event hub of a device at the given deviceIndex starting at the given start Time
-monitorDevice(deviceIndex, startTime);
+//monitorDevice(deviceIndex, startTime);
 
-function monitorDevice(deviceInd, startTime) {
+function monitorDevice(deviceList, deviceInd, startTime) {
     var device = deviceList[deviceIndex];    
     var client = EventHubClient.fromConnectionString(myConnectionString);
     client
@@ -38,7 +37,7 @@ function monitorDevice(deviceInd, startTime) {
                   showError(error);
               });
               receiver.on('message', function(eventData){
-                  if(eventData.systemProperties['iothub-connection-device-id'] === arg1) {
+                  if(eventData.systemProperties['iothub-connection-device-id'] === device.deviceId) {
                       console.log('Event : ' + eventData.body + '\n');                      
                   }
               })
@@ -58,7 +57,8 @@ function getDevices(connString) {
     if(error) {
         showError(error);
     } else {
-        deviceList = list;
+        showDevices(list);//promises cannot be made, so to ensure the device list is correct has to be made in the callback
+        monitorDevice(list, deviceIndex, startTime);
     }
   });
 }
