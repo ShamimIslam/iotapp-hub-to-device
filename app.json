@@ -1,0 +1,18 @@
+{
+	"title": "IOT Hub To Device",
+	"abbr": "IOTHub To Device",
+	"tooltip": "A sample for getting data from cloud using the Microsoft Azure service",
+	"description": "An application demonstrating how to get temperature data stored in IOT hub using the azure iot device node package and azure events hub node package.",
+	"repoName": "iotapp-hub-to-device",
+	"articleUrl": "https://github.com/gomobile/iotapp-hub-to-device",
+	"section": "iot-templates",
+	"group": "other",
+	"template": true,
+	"visible": true,
+	"keywords": ["cloud", "azure", "hub"],
+	"highlights": ["Temperature", "Cloud Connector", "Azure"],
+	"projectTypeName": "com.intel.xdk.projecttype.iotapp",
+	"screenshotUrl": "",
+	"mobile": false,
+	"appName": "demo.hubtodevice"
+}
