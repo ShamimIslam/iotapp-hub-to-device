@@ -16,7 +16,6 @@ var mySharedAccessKey = 'vdJinNU+SkFWKYnvHut8xd1QiPVPdMStYyqR0Hn5uF0=';
 var myConnectionString = 'HostName='+ myHostName + ';SharedAccessKeyName='+ mySharedAccessKeyName + ';SharedAccessKey='+ mySharedAccessKey;
 var deviceIndex = 1;
 var startTime = Date.parse(2016-08-30);
-console.log(startTime);
 //Get the list of all devices
 getDevices(myConnectionString);
 //Show a high level summary of all devices
@@ -38,7 +37,7 @@ function monitorDevice(deviceList, deviceInd, startTime) {
               });
               receiver.on('message', function(eventData){
                   if(eventData.systemProperties['iothub-connection-device-id'] === device.deviceId) {
-                      console.log('Event : ' + eventData.body + '\n');                      
+                      console.log('Event : \n' + eventData.body + '\n');                    
                   }
               })
               
