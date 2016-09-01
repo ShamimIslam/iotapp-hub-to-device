@@ -1,6 +1,6 @@
 {
-	"title": "IOT Hub To Device",
-	"abbr": "IOTHub To Device",
+	"title": "Hub To Device",
+	"abbr": "Hub To Device",
 	"tooltip": "A sample for getting data from cloud using the Microsoft Azure service",
 	"description": "An application demonstrating how to get temperature data stored in IOT hub using the azure iot device node package and azure events hub node package.",
 	"repoName": "iotapp-hub-to-device",
