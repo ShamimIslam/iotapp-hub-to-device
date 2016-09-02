@@ -15,12 +15,12 @@ var mySharedAccessKeyName = 'iothubowner';
 var mySharedAccessKey = 'vdJinNU+SkFWKYnvHut8xd1QiPVPdMStYyqR0Hn5uF0=';
 var myConnectionString = 'HostName='+ myHostName + ';SharedAccessKeyName='+ mySharedAccessKeyName + ';SharedAccessKey='+ mySharedAccessKey;
 var deviceIndex = 1;
-var startTime = Date.parse(2016-08-30);
+var startTime = Date.parse(2016-09-1);
 //Get the list of all devices
 getDevices(myConnectionString);
 //Show a high level summary of all devices
 //Monitor the event hub of a device at the given deviceIndex starting at the given start Time
-//monitorDevice(deviceIndex, startTime);
+//monitorDevice(deviceIndex, startTi
 
 function monitorDevice(deviceList, deviceInd, startTime) {
     var device = deviceList[deviceIndex];    

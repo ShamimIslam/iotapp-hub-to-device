@@ -8,7 +8,8 @@ Important App Files
 * package.json
 * icon.png
 * README.md
-* 
+* connection.json
+
 Requirements
 ------------
 
@@ -34,7 +35,7 @@ Getting Started
 
 ### Opening the Project Files
 
-Download and unzip a copy of the project files [IoT-Hub-to-Device](https://github.com/XXXXXXXX)  and put it in an
+Download and unzip a copy of the project files and put it in an
 easily accessible folder on your workstation.
 
 -   Start the Intel XDK and select "Open an Intel XDK Project” from the Projects
@@ -46,7 +47,10 @@ easily accessible folder on your workstation.
 ![How to open an Intel XDK project](/img/projectExamp.png)
 
 ### Modifying the Source Files
-You will need to modify your source file to contain the connection string that is unique to your own hub. This string is in the main.js file. All you will have to do is fill in the information with your own connection string information(myHostName = hostname, mySharedAccessKeyName = shared access key name, mySharedAccessKey = shared access key) everything else is set up to be filled in with the program.
+You will need to modify your source file to contain the connection string that is unique to your own hub. This string is in the connection.json file. All you will have to do is fill in the information with your own connection string information(host\_name = hostname, shared\_access\_name = shared access key name, first\_key = shared access key) everything else is set up to be filled in with the program. To get your shared access key, you'll first go to your IoT Hub > Shared Access Policies > IoT Hub Owner > Connection String - Primary.
+
+![Share Policies Page](/img/sharedAccess.png)
+![Key Page](/img/key.png)
 
 Running the Project
 -------------------
