@@ -10,9 +10,9 @@ var ConnectionString = require('azure-iothub').ConnectionString;
 var _ = require('underscore');
 var EventHubClient = require('azure-event-hubs').Client;
 
-var myHostName = "sample-temperature-app.azure-devices.net";
-var mySharedAccessKeyName = 'iothubowner';
-var mySharedAccessKey = 'vdJinNU+SkFWKYnvHut8xd1QiPVPdMStYyqR0Hn5uF0=';
+var myHostName = "XXXXXXXXXXXXXXXXX";
+var mySharedAccessKeyName = 'XXXXXXXXXXXXX';
+var mySharedAccessKey = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 var myConnectionString = 'HostName='+ myHostName + ';SharedAccessKeyName='+ mySharedAccessKeyName + ';SharedAccessKey='+ mySharedAccessKey;
 var deviceIndex = 1;
 var startTime = Date.parse(2016-09-1);
