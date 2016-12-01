@@ -13,5 +13,6 @@
 	"projectTypeName": "com.intel.xdk.projecttype.iotapp",
 	"screenshotUrl": "",
 	"mobile": false,
-	"appName": "demo.hubtodevice"
+	"appName": "demo.hubtodevice",
+	"articleUrl" : "https://github.com/gomobile/iotapp-hub-to-device/blob/master/README.md"
 }
