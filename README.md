@@ -28,7 +28,7 @@ Requirements
 
 >**NOTE:** You can get your Azure membership by going to the [Portal Website](https://portal.azure.com). For this app you don't need a full subscription to 
 >the services - you can get the free trial if you would like. If you would like a
->detailed tutorial on how to set up the events hub please go to the 
+>detailed tutorial on how to set up the IOT hub please go to here :  [Setup Azure IOT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md)
 
 Getting Started
 ---------------
