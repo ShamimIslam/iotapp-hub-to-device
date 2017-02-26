@@ -4,22 +4,22 @@
     "creationData": {
       "projectTypeName": "com.intel.xdk.projecttype.iotapp",
       "projectGuid": "00000000-0000-0000-0000-000000000000",
-      "lastModifiedDate": 1472662629755,
-      "creationDate": 1472058254227
+      "lastModifiedDate": 1477684062145,
+      "creationDate": 1477684061071
     },
     "sourceDirectory": "",
     "cordovaPluginsDirectory": "plugins",
     "startFile": "main.js",
-    "projectFiles": {
-      "xdk-publish-meta-data.json": {
+    "projectTags": [],
+    "projectFiles": {},
+    "projectDirectories": {
+      "iot/xdk": {
         "settings": {
           "project": {
-            "XDK-not-deployed": "True"
+            "XDK-generated": "true"
           }
         }
-      }
-    },
-    "projectDirectories": {
+      },
       "xdk": {
         "settings": {
           "project": {
@@ -28,28 +28,10 @@
         }
       }
     },
-    "libraries": [
-      {
-        "name": "Cordova",
-        "version": "2.9.0",
-        "data": {
-          "default": true
-        }
-      },
-      {
-        "name": "intelXDK",
-        "version": "4.0.0",
-        "data": {
-          "default": true
-        }
-      }
-    ],
+    "libraries": [],
     "cordovaPlugins": [],
     "serviceMethods": [],
-    "gameAssetDirectory": "asset",
-    "gameMetadata": {},
-    "testDirectory": "test",
-    "projectTags": [],
-    "buildConfigurations": {}
+    "buildConfigurations": {},
+    "testDirectory": "test"
   }
 }

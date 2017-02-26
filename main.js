@@ -1,19 +1,40 @@
-/*jslint node:true, vars:true, bitwise:true, unparam:true */
-/*jshint unused:true */
-// Leave the above lines for propper jshinting
-//Type Node.js Here :)
+/**
+ * @file
+ * Retrieve data from the Microsoft Azure cloud service.
+ * See the included README.md file for more information.
+ *
+ * <https://software.intel.com/en-us/xdk/docs/using-templates-nodejs-iot>
+ *
+ * @author Giselle Gomez, Intel Corporation
+ * @author Anjali Gola, Intel Corporation
+ *
+ * @copyright (c) 2016-2017, Intel Corporation
+ * @license BSD-3-Clause
+ * See LICENSE.md for complete license terms and conditions.
+ */
 
-var Https = require('azure-iothub').Https;
-var Client = require('azure-iothub').Client;
+/* spec jslint and jshint lines for desired JavaScript linting */
+/* see http://www.jslint.com/help.html and http://jshint.com/docs */
+/* jslint node:true */
+/* jshint unused:true */
+
+"use strict" ;
+
+
+var fs = require('fs');
+var path = require('path');
+// var Https = require('azure-iothub').Https;
+// var Client = require('azure-iothub').Client;
 var Registry = require('azure-iothub').Registry;
-var ConnectionString = require('azure-iothub').ConnectionString;
+// var ConnectionString = require('azure-iothub').ConnectionString;
 var _ = require('underscore');
 var EventHubClient = require('azure-event-hubs').Client;
 
-var myHostName = "XXXXXXXXXXXXXXXXX";
-var mySharedAccessKeyName = 'XXXXXXXXXXXXX';
-var mySharedAccessKey = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-var myConnectionString = 'HostName='+ myHostName + ';SharedAccessKeyName='+ mySharedAccessKeyName + ';SharedAccessKey='+ mySharedAccessKey;
+//parse in the information from our connection.json - to be used in connection string building
+var connectString = JSON.parse(fs.readFileSync(path.join(__dirname, "connection.json")));
+
+//This needs to be changed to match the connection string provided from YOUR hub - go into the connection.json to do so
+var myConnectionString = "HostName=" + connectString.HOST_NAME + ";" + "SharedAccessKeyName=" + connectString.SHARE_ACCESS_NAME + ";" + "SharedAccessKey=" + connectString.FIRST_KEY + ";" ;
 var deviceIndex = 1;
 var startTime = Date.parse(2016-09-1);
 //Get the list of all devices
@@ -23,7 +44,7 @@ getDevices(myConnectionString);
 //monitorDevice(deviceIndex, startTi
 
 function monitorDevice(deviceList, deviceInd, startTime) {
-    var device = deviceList[deviceIndex];    
+    var device = deviceList[deviceIndex];
     var client = EventHubClient.fromConnectionString(myConnectionString);
     client
     .open()
@@ -37,19 +58,19 @@ function monitorDevice(deviceList, deviceInd, startTime) {
               });
               receiver.on('message', function(eventData){
                   if(eventData.systemProperties['iothub-connection-device-id'] === device.deviceId) {
-                      console.log('Event : \n' + eventData.body + '\n');                    
+                      console.log('Event : \n' + eventData.body + '\n');
                   }
-              })
-              
-          })
-      })  
+              });
+
+          });
+      });
     })
-    .catch(showError);    
+    .catch(showError);
 }
 
 function getDevices(connString) {
   if (!connString) {
-    error('Missing connection string');
+    showError('Missing connection string');
   }
   var registry = Registry.fromConnectionString(connString);
   registry.list(function(error, list){
@@ -64,24 +85,24 @@ function getDevices(connString) {
 function showDevices(devices) {
     _.each(devices, function(device){
         getDeviceDetail(device.deviceId, myConnectionString);
-    });    
+    });
 }
-           
-function getHostName(str) { 
-    var txtchain = str.split(";"); 
-    for (var strx in txtchain) { 
+
+function getHostName(str) {
+    var txtchain = str.split(";");
+    for (var strx in txtchain) {
         var txtbuck = txtchain[strx].split("=");
-        if (txtbuck[0].toLowerCase() == "hostname") 
-            return txtchain[strx]; 
-    } 
-    return ""; 
+        if (txtbuck[0].toLowerCase() == "hostname")
+            return txtchain[strx];
+    }
+    return "";
 }
 /*
  * Creates the device connection string and adds it to device object
  * Displays other interesting information about the device.
  *
 */
-    
+
 function getDeviceDetail(deviceId, connString) {
   if (!connString) {
     showError('Missing connection string');
@@ -94,11 +115,11 @@ function getDeviceDetail(deviceId, connString) {
   var registry = Registry.fromConnectionString(connString);
     registry.get(deviceId, function(error, device){
     if(error){
-      showError(err);
+      showError(error);
     } else {
       requestString +=';SharedAccessKey' + device.authentication.SymmetricKey.primaryKey;
       device.connectionString = requestString;
-      console.log('\n Device : '+ device.deviceId + '\t Last Activity Time : ' + device.lastActivityTime + '\t Status : ' + device.status + '\t Message count : ' + device.cloudToDeviceMessageCount)
+      console.log('\n Device : '+ device.deviceId + '\t Last Activity Time : ' + device.lastActivityTime + '\t Status : ' + device.status + '\t Message count : ' + device.cloudToDeviceMessageCount) ;
     }
   });
 }

@@ -1,67 +1,89 @@
-Iot Hub to Device App
-============================
-This sample app demonstrates how to grab data from the Microsoft Azure Hub. This hub then encrypts the data and allows the user to either store or read the information received from the device.This is the next step app after the IoT Device to Hub App
+Intel® XDK IoT Node.js\* Hub to Device App
+==========================================
+See [LICENSE.md](LICENSE.md) for license terms and conditions.
 
-Important App Files
----------------------------
-* main.js
-* package.json
-* icon.png
-* README.md
-* connection.json
+This sample application is distributed as part of the
+[Intel® XDK](http://xdk.intel.com). It can also be downloaded
+or cloned directly from its git repo on the
+[public Intel XDK GitHub\* site](https://github.com/gomobile).
 
-Requirements
+For help getting started developing applications with the
+Intel XDK, please start with
+[the Intel XDK documentation](https://software.intel.com/en-us/xdk/docs).
+
+See also, the
+[mraa library documentation](https://iotdk.intel.com/docs/master/mraa/index.html)
+for details regarding supported boards and the mraa library API and the
+[upm library documentation](https://iotdk.intel.com/docs/master/upm/) for
+information regarding the upm sensor and actuator library APIs.
+
+App Overview
 ------------
+This sample app demonstrates how to retrieve data from the Microsoft Azure Hub.
+This app assumes you have run the "IoT Device to Hub App" and stored collected
+data in your Microsoft Azure Hub account, which this app will retrieve and
+display on the Node.js console.
 
-### Hardware
--	[Intel® Edison Board or Intel® Galileo Board](https://software.intel.com/iot/hardware/devkit) with a Breakout Board
--	Development system with Linux\*, Microsoft\* Windows\* 7+ or Apple\* OS X\*
-
-![Intel Edison CPU module mounted on an Intel Edison breakout board](/img/breakoutBoard.JPG)
-
-### Software
--   [Intel® XDK](http://xdk.intel.com) for your development system (August, 2016
-    release or later)
--   A standard ssh client for your dev system (e.g., [PuTTY\* SSH
-    client](http://www.putty.org/) for Windows)
--	An Microsoft Azure membership for the Azure Hub
-
->**NOTE:** You can get your Azure membership by going to the [Portal Website](https://portal.azure.com). For this app you don't need a full subscription to 
->the services - you can get the free trial if you would like. If you would like a
->detailed tutorial on how to set up the IOT hub please go to here :  [Setup Azure IOT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md)
+> **NOTE:** You can get your Microsoft Azure Hub membership by going to the
+> [Azure Portal](https://portal.azure.com). For this app you do not need a full
+> subscription to the service - you can use the free trial. For a detailed
+> tutorial on how to setup your Azure IoT hub, see:
+> [Setup Azure IoT Hub](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md)
 
 Getting Started
 ---------------
+Download and unzip a copy of the project files and put it into an easily
+accessible folder on your workstation.
 
-### Opening the Project Files
+* Start the Intel XDK and select "Open an Intel XDK Project” from the Projects
+  tab (see the image below).
 
-Download and unzip a copy of the project files and put it in an
-easily accessible folder on your workstation.
-
--   Start the Intel XDK and select "Open an Intel XDK Project” from the Projects
-    tab (see the image below).
-
--   Locate the folder that contains the "IoT-Hub-to-Device" project you downloaded
-    and unzipped and select the file with the `.xdk` extension.
+* Locate the folder that contains the "IoT-Hub-to-Device" project you downloaded
+  and unzipped and select the file with the `.xdk` extension.
 
 ![How to open an Intel XDK project](/img/projectExamp.png)
 
 ### Modifying the Source Files
-You will need to modify your source file to contain the connection string that is unique to your own hub. This string is in the connection.json file. All you will have to do is fill in the information with your own connection string information(host\_name = hostname, shared\_access\_name = shared access key name, first\_key = shared access key) everything else is set up to be filled in with the program. To get your shared access key, you'll first go to your IoT Hub > Shared Access Policies > IoT Hub Owner > Connection String - Primary.
+
+Modify the `connection.json` file to specify the connection string information
+that is unique to your hub. The information shown below will not work, you must
+change it to match your IoT hub connection identification information:
+
+```JavaScript
+{
+    "HOST_NAME": "your-hostname",
+    "SHARE_ACCESS_NAME": "shared-access-key-name",
+    "FIRST_KEY": "shared-access-key"
+}
+```
+
+To get your shared access key, goto your IoT Hub > Shared Access Policies >
+IoT Hub Owner > Connection String - Primary.
 
 ![Share Policies Page](/img/sharedAccess.png)
 ![Key Page](/img/key.png)
 
 Running the Project
 -------------------
+After all hardware and software configuration are complete, be sure to
+configure your IoT board's network interface so it has access to the Internet.
 
-After all of your connections have been made, the last thing you will have to do is set up your wifi connection on the Edison or Galileo (where the Galileo will need to have a an expansion attached for the wifi connection). To do so you can follow this link to the [Intel Developer Zone](https://software.intel.com/en-us/connecting-your-intel-edison-board-using-wifi), which will show you how to connect your device to the internet.
+Important App Files
+-------------------
+* main.js
+* package.json
+* connection.json
 
-Once your wifi connection is made, connect your work station to the same network. Navigate to the Intel XDK IoT and search for or create a manual connection to the Edison. This will allow you to now upload your project code to the device.
+Important Project Files
+-----------------------
+* README.md
+* LICENSE.md
+* \<project-name\>.xdk
 
-mraa
---------------------------------------------
-* Included on the IoTDevkit Linux Image 
+Tested IoT Node.js Platforms
+----------------------------
+* [Intel® Galileo Board for Arduino](http://intel.com/galileo)
+* [Intel® Edison Board for Arduino](http://intel.com/edison)
 
-* source:  https://github.com/intel-iot-devkit/mraa
-* license:  https://github.com/intel-iot-devkit/mraa/blob/9d488c8e869e59e1dff2c68218a8f38e9b959cd7/cmake/modules/LICENSE_1_0.txt
+This sample should run on any IoT [Node.js](http://nodejs.org) development
+platform, because it does not require any sensor hardware.
