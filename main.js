@@ -23,11 +23,8 @@
 
 var fs = require('fs');
 var path = require('path');
-// var Https = require('azure-iothub').Https;
-// var Client = require('azure-iothub').Client;
-var Registry = require('azure-iothub').Registry;
-// var ConnectionString = require('azure-iothub').ConnectionString;
 var _ = require('underscore');
+var Registry = require('azure-iothub').Registry;
 var EventHubClient = require('azure-event-hubs').Client;
 
 //parse in the information from our connection.json - to be used in connection string building

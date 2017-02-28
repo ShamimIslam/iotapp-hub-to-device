@@ -1,5 +1,6 @@
 Intel® XDK IoT Node.js\* Hub to Device App
 ==========================================
+
 See [LICENSE.md](LICENSE.md) for license terms and conditions.
 
 This sample application is distributed as part of the
@@ -19,6 +20,7 @@ information regarding the upm sensor and actuator library APIs.
 
 App Overview
 ------------
+
 This sample app demonstrates how to retrieve data from the Microsoft Azure Hub.
 This app assumes you have run the "IoT Device to Hub App" and stored collected
 data in your Microsoft Azure Hub account, which this app will retrieve and
@@ -32,6 +34,7 @@ display on the Node.js console.
 
 Getting Started
 ---------------
+
 Download and unzip a copy of the project files and put it into an easily
 accessible folder on your workstation.
 
@@ -65,23 +68,27 @@ IoT Hub Owner > Connection String - Primary.
 
 Running the Project
 -------------------
+
 After all hardware and software configuration are complete, be sure to
 configure your IoT board's network interface so it has access to the Internet.
 
 Important App Files
 -------------------
+
 * main.js
 * package.json
 * connection.json
 
 Important Project Files
 -----------------------
+
 * README.md
 * LICENSE.md
 * \<project-name\>.xdk
 
 Tested IoT Node.js Platforms
 ----------------------------
+
 * [Intel® Galileo Board for Arduino](http://intel.com/galileo)
 * [Intel® Edison Board for Arduino](http://intel.com/edison)
 
