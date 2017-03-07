@@ -11,6 +11,6 @@
   "dependencies": {
     "underscore": "^1.8.3",
     "azure-iothub": "^1.1.7",
-    "azure-event-hubs": ">=0.0.6"
+    "azure-event-hubs": "0.0.3"
   }
 }
