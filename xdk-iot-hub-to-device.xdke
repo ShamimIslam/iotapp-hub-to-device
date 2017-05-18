@@ -1,0 +1,95 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0"
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "iot-tab": {
+    "fileStatus": {
+      "LICENSE.md": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "LICENSE.md"
+      },
+      "README.md": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "README.md"
+      },
+      "app.json": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "app.json"
+      },
+      "connection.json": {
+        "previousModTime": 1495066390000,
+        "modified": 1495066390000,
+        "seen": true,
+        "name": "connection.json"
+      },
+      "icon.png": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "icon.png"
+      },
+      "main.js": {
+        "previousModTime": 1495067503000,
+        "modified": 1495067503000,
+        "seen": true,
+        "name": "main.js"
+      },
+      "package.json": {
+        "previousModTime": 1495066448000,
+        "modified": 1495066448000,
+        "seen": true,
+        "name": "package.json"
+      },
+      "xdk-iot-hub-to-device.xdk": {
+        "previousModTime": 1495054574000,
+        "modified": 1495054574000,
+        "seen": true,
+        "name": "xdk-iot-hub-to-device.xdk"
+      },
+      "xdk-iot-hub-to-device.xdke": {
+        "previousModTime": 1495067417000,
+        "modified": 1495067417000,
+        "seen": true,
+        "name": "xdk-iot-hub-to-device.xdke"
+      },
+      "img/breakoutBoard.JPG": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "img/breakoutBoard.JPG"
+      },
+      "img/key.png": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "img/key.png"
+      },
+      "img/projectExamp.png": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "img/projectExamp.png"
+      },
+      "img/sharedAccess.png": {
+        "previousModTime": 1494452110000,
+        "modified": 1494452110000,
+        "seen": true,
+        "name": "img/sharedAccess.png"
+      }
+    },
+    "boardFileStatus": {
+      "main.js": {
+        "previousModTime": 1495067505304
+      }
+    }
+  }
+}

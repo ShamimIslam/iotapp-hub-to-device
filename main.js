@@ -32,8 +32,14 @@ var connectString = JSON.parse(fs.readFileSync(path.join(__dirname, "connection.
 
 //This needs to be changed to match the connection string provided from YOUR hub - go into the connection.json to do so
 var myConnectionString = "HostName=" + connectString.HOST_NAME + ";" + "SharedAccessKeyName=" + connectString.SHARE_ACCESS_NAME + ";" + "SharedAccessKey=" + connectString.FIRST_KEY + ";" ;
+var eventHubPath;
+
+//Changes this index value to match the device you would like to see events for
+//The array of devices will print before 'events' get printed
 var deviceIndex = 1;
+
 var startTime = Date.parse(2016-09-1);
+var str;
 //Get the list of all devices
 getDevices(myConnectionString);
 //Show a high level summary of all devices
@@ -42,7 +48,7 @@ getDevices(myConnectionString);
 
 function monitorDevice(deviceList, deviceInd, startTime) {
     var device = deviceList[deviceIndex];
-    var client = EventHubClient.fromConnectionString(myConnectionString);
+    var client = EventHubClient.fromConnectionString(myConnectionString, eventHubPath);
     client
     .open()
     .then(client.getPartitionIds.bind(client))
@@ -54,7 +60,11 @@ function monitorDevice(deviceList, deviceInd, startTime) {
                   showError(error);
               });
               receiver.on('message', function(eventData){
-                  if(eventData.systemProperties['iothub-connection-device-id'] === device.deviceId) {
+                  //Parse out the id of the device given the event data
+                  //THIS is what had to be changed to make the program work
+                  str = eventData.systemProperties['to'].slice(9);
+                  str = str.substring(0, str.length-16);
+                  if(str === device.deviceId) {
                       console.log('Event : \n' + eventData.body + '\n');
                   }
               });
